@@ -1,0 +1,343 @@
+.bg-image {
+  background-image: url("/bg-image.jpg"); /* Se till att bilden är i public-mappen */
+  background-size: cover; /* Anpassa bilden till skärmen */
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute; /* Låter den scrolla naturligt */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Täcker hela skärmen */
+  background-attachment: scroll; /* Gör att den scrollar med sidan */
+  z-index: -1; /* Lägg bakom allt annat */
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+p {
+  text-transform: uppercase;
+}
+
+.header-container {
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 100%; /* Gör att headern sträcker sig över hela sidan */
+}
+
+#its-me {
+  font-size: 2rem;
+  padding-left: 3rem;
+  padding-top: 0.5rem;
+  font-weight: bold;
+  /*
+  display: flex;
+  flex-direction: column; 
+  gap: 5px;
+  background-color: rgba(32, 56, 102, 0.05);
+  backdrop-filter: blur(10px);
+  width: 450px;
+  padding: 10px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  */
+}
+.text-container {
+  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: url("IMG_1498.jpg");
+  animation: bg-animation 30s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+#food {
+  margin-top: 0px; /* Separerar det från de övre elementen */
+}
+
+.nav {
+  padding-left: -5px;
+  color: aliceblue;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: row; /* Håller "nav" i en rad */
+  align-items: baseline;
+  gap: 50px;
+  flex-wrap: nowrap;
+  height: auto;
+}
+
+.parentheses {
+  font-size: 2rem;
+  line-height: 0;
+  z-index: 2;
+}
+
+.nav p {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav p:hover {
+  background-color: rgba(32, 56, 102, 0.3);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#page-box {
+  width: 100vw;
+  height: calc(100vh - 100px);
+  position: absolute;
+  top: calc(100px + 1rem);
+  left: 0;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(9, 17, 20, 0.9);
+  backdrop-filter: blur(90px);
+}
+
+#page-box::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(9, 17, 20, 0.151);
+}
+
+#main-text {
+  position: absolute;
+  left: 60px;
+  bottom: 100px;
+  color: aliceblue;
+  font-size: 3.9vh;
+  max-width: 830px;
+  min-width: 600px;
+}
+
+.window-box {
+  position: absolute;
+  top: 25px;
+  left: 55px;
+  width: 40vw;
+  min-width: 600px;
+  background: rgb(31, 38, 41);
+  background: linear-gradient(
+    130deg,
+    rgba(31, 38, 41, 1) 0%,
+    rgba(34, 40, 45, 1) 35%,
+    rgba(43, 47, 59, 0.6) 100%
+  );
+  height: 400px;
+  border-radius: 3px;
+  z-index: 1;
+
+  color: rgb(12, 28, 32);
+}
+.window-box.open {
+  color: rgb(12, 28, 32);
+}
+
+.window-box.open p {
+  color: inherit;
+}
+
+.this-window {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  width: fit-content;
+  position: relative;
+}
+
+.this-window p {
+  position: relative;
+  z-index: 2;
+  color: aliceblue;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Ändra färg när fönstret är öppet 
+.this-window p.active {
+  color: rgb(12, 28, 32);
+}*/
+
+.window-content {
+  color: aliceblue;
+  display: flex;
+  flex-direction: column; /* 🔥 För att placera "THIS IS ME." överst */
+  align-items: center; /* Centrerar innehållet */
+  text-align: center;
+  gap: 10px;
+  position: absolute;
+  left: 20px;
+  top: 60px;
+}
+/* 🔥 Specificera att endast sociala ikoner påverkas, inte pilen */
+.social-icons img:not(.arrow-icon) {
+  width: 35px; /* Standardstorlek */
+  height: 35px;
+  transition: transform 0.3s ease-in-out; /* Smooth effekt */
+}
+
+/* 🔥 Endast sociala ikoner förstoras vid hover */
+.social-icons img:not(.arrow-icon):hover {
+  transform: scale(1.3); /* Gör ikonen 30% större */
+}
+
+.me-container {
+  margin-top: 27px;
+  display: flex;
+  flex-direction: row; /* 🔥 Håller bild + text i rad */
+  align-items: center; /* Justerar vertikalt */
+  gap: 20px;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  text-decoration-color: rgb(0, 0, 0);
+  text-decoration-thickness: 2px;
+}
+
+.awards {
+  color: aliceblue;
+  position: absolute;
+  right: 15%;
+  top: 20%;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 200px;
+}
+
+.awards img {
+  height: auto;
+  max-width: 170px;
+}
+
+.awards p:nth-of-type(2) {
+  margin-bottom: 70px; /* 🔥 Skapar extra mellanrum efter första bilden */
+}
+
+.me-text {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-size: 1rem;
+}
+.title-text {
+  position: absolute;
+  left: 2px;
+  top: 10px;
+}
+
+#me {
+  width: 170px;
+  height: auto;
+}
+
+.social-icons-container {
+  top: 35%;
+  left: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: absolute;
+  top: 35%;
+  left: 10px;
+  cursor: pointer;
+}
+
+/* 🔥 Pil börjar gömd */
+.arrow-wrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: -80px;
+  left: -210px; /* Starta utanför */
+  transition: left 0.5s ease-in-out;
+}
+.arrow-icon {
+  width: 182px;
+  height: auto;
+  transition: left 0.5s ease-in-out;
+}
+
+/* 🔥 När `show-arrow` är aktiv, flytta pilen till rätt position */
+.show-arrow {
+  top: -80px;
+  left: 25px; /* Flytta pilen */
+  transform: rotate(5deg);
+}
+
+/* 🔥 Texten bredvid pilen (startar osynlig) */
+.arrow-text {
+  width: 100px;
+  font-size: 1rem;
+  color: aliceblue;
+  opacity: 0;
+  margin-left: 10px; /* Lite avstånd från pilen */
+  transition: opacity 0.5s ease-in-out;
+  transition-delay: 0.5s; /* 🔥 Fördröj visningen av texten */
+}
+
+/* 🔥 När `show-arrow` är aktivt, visa texten */
+.show-arrow .arrow-text {
+  opacity: 1;
+}
+
+[v-cloak] {
+  display: none;
+}
