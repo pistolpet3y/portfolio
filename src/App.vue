@@ -1,5 +1,10 @@
 <script setup>
 import { ref } from "vue";
+import RandomQuote from './components/RandomQuote.vue';
+import BirthDate from "./components/BirthDate.vue";
+import Arrows from "./components/Arrows.vue";
+
+
 
 const showPageBox = ref(false);
 const showWindow = ref(false);
@@ -16,6 +21,7 @@ const toggleWindow = () => {
 const toggleSocialIcons = () => {
   showSocials.value = !showSocials.value;
 };
+
 </script>
 
 
@@ -25,7 +31,7 @@ const toggleSocialIcons = () => {
   <div class="bg-image"></div>
   <div id="its-me">
     <div class="text-container">
-      <p @click="togglePageBox" style="cursor: pointer;">🠶 Alex Tarverdi</p>
+      <p @click="togglePageBox" style="cursor: pointer;">🠶 Alex.Tarverdi</p>
     </div>
   </div>
 
@@ -35,6 +41,7 @@ const toggleSocialIcons = () => {
     <p>Hamburger is undeniably the superior fast food choice compared to other common options like pizza.</p>
   </span>
   </div>-->
+
   <transition name="fade">
     <div id="page-box" v-if="showPageBox">
       <div id="app">
@@ -57,17 +64,24 @@ const toggleSocialIcons = () => {
         <transition name="fade">
           <div v-if="showWindow" class="window-box" :class="{ open: showWindow }">
             <div class="window-content">
-              <p class="title-text">THIS IS ME.</p>
+              <p class="title-text">THIS IS <span style="font-style: italic; color: #29b585;">ME</span>.</p>
               <div class="me-container">
-                <img id="me" src="/IMG_0640.jpg" alt="Me">
+                <img id="me" src="/me.vector.png" alt="Me">
                 <div class="me-text">
-                  <p>UX/UI DESIGNER</p>
-                  <p>FRONTEND DEVELOPER</p>
-                  <p>AMATEUR PHOTOGRAPHER</p>
+                  <Arrows />
                   <p class="strikethrough">HUSBAND</p>
                   <p class="strikethrough">FATHER</p>
                 </div>
               </div>
+              <div class="photo-symbols">
+                <p>└</p>
+                <p>┐</p>
+                <p>┘</p>
+                <p>┌</p>
+
+              </div>
+              <p class="age-text">(days and counting.)</p>
+              <BirthDate />
             </div>
           </div>
         </transition>
@@ -90,17 +104,18 @@ const toggleSocialIcons = () => {
         </div>
 
         <div id="main">
-          <div class="awards">
+          <!--<div class="awards">
             <p>2023-2024</p>
             <img src="/award.png" alt="award">
             <p>nominated best boyfriend in the world 2 years in a row</p>
-            <!--Gap här-->
-            <p>2021</p>
-            <img src="/award.png" alt="award">
-            <p>Brother of the year</p>
-          </div>
+          <p>2021</p>
+          <img src="/award.png" alt="award">
+          <p>Brother of the year</p>
+        </div>-->
           <div id="main-text">
-            <h2>Maybe I'll fill this out later, maybe I wont 🠴</h2>
+            <div v-if="true">
+              <RandomQuote />
+            </div>
           </div>
         </div>
       </div>

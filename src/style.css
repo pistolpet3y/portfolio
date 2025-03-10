@@ -62,6 +62,18 @@ p {
   animation: bg-animation 30s cubic-bezier(0.3, 0, 0.7, 1) infinite;
 }
 
+/*.text-arrows {
+  left: 20px;
+  font-size: 0.9em;
+  opacity: 0;
+  color: #29b585;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: url("arrow.fade.png");
+  animation: bg-animation 30s cubic-bezier(0.42, 0, 1, 1) infinite;
+}*/
+
 @keyframes bg-animation {
   0% {
     background-position: 0% 0%;
@@ -74,16 +86,40 @@ p {
   }
 }
 
-#food {
-  margin-top: 0px; /* Separerar det från de övre elementen */
+.photo-symbols {
+  color: #29b585;
+}
+
+.photo-symbols p:nth-child(1) {
+  position: absolute;
+  left: -128px;
+  top: 399px;
+}
+
+.photo-symbols p:nth-child(2) {
+  position: absolute;
+  left: 200px;
+  top: -2px;
+}
+
+.photo-symbols p:nth-child(3) {
+  position: absolute;
+  top: 399px;
+  left: 200px;
+}
+
+.photo-symbols p:nth-child(4) {
+  position: absolute;
+  top: -2px;
+  left: -128px;
 }
 
 .nav {
   padding-left: -5px;
   color: aliceblue;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   display: flex;
-  flex-direction: row; /* Håller "nav" i en rad */
+  flex-direction: row;
   align-items: baseline;
   gap: 50px;
   flex-wrap: nowrap;
@@ -93,7 +129,7 @@ p {
 .parentheses {
   font-size: 2rem;
   line-height: 0;
-  z-index: 2;
+  z-index: 1;
 }
 
 .nav p {
@@ -151,16 +187,16 @@ p {
   bottom: 100px;
   color: aliceblue;
   font-size: 3.9vh;
-  max-width: 830px;
+  max-width: 750px;
   min-width: 600px;
+  bottom: 100px;
 }
 
 .window-box {
   position: absolute;
   top: 25px;
   left: 55px;
-  width: 40vw;
-  min-width: 600px;
+  width: 99vw;
   background: rgb(31, 38, 41);
   background: linear-gradient(
     130deg,
@@ -168,7 +204,7 @@ p {
     rgba(34, 40, 45, 1) 35%,
     rgba(43, 47, 59, 0.6) 100%
   );
-  height: 400px;
+  height: 800px;
   border-radius: 3px;
   z-index: 1;
 
@@ -180,6 +216,16 @@ p {
 
 .window-box.open p {
   color: inherit;
+}
+
+.little-box {
+  background-color: rgba(240, 248, 255, 0.452);
+  position: relative;
+  top: -81px;
+  left: -172px;
+  width: 100px;
+  height: 30px;
+  border-top-right-radius: 40px;
 }
 
 .this-window {
@@ -211,27 +257,43 @@ p {
   text-align: center;
   gap: 10px;
   position: absolute;
-  left: 20px;
-  top: 60px;
-}
-/* 🔥 Specificera att endast sociala ikoner påverkas, inte pilen */
-.social-icons img:not(.arrow-icon) {
-  width: 35px; /* Standardstorlek */
-  height: 35px;
-  transition: transform 0.3s ease-in-out; /* Smooth effekt */
+  left: 200px;
+  top: 200px;
 }
 
-/* 🔥 Endast sociala ikoner förstoras vid hover */
+.me-text {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  line-height: 0.02;
+  margin-left: -5px;
+}
+
+.social-icons img:not(.arrow-icon) {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.3s ease-in-out;
+}
+
 .social-icons img:not(.arrow-icon):hover {
-  transform: scale(1.3); /* Gör ikonen 30% större */
+  transform: scale(1.3);
 }
 
 .me-container {
-  margin-top: 27px;
+  margin-top: 65px;
   display: flex;
-  flex-direction: row; /* 🔥 Håller bild + text i rad */
-  align-items: center; /* Justerar vertikalt */
+  flex-direction: row;
+  align-items: center;
   gap: 20px;
+}
+
+#me {
+  width: 240px;
+  height: auto;
+  border: solid 2px black;
+  margin-right: 70px;
+  margin-left: -80px;
 }
 
 .strikethrough {
@@ -262,22 +324,19 @@ p {
   margin-bottom: 70px; /* 🔥 Skapar extra mellanrum efter första bilden */
 }
 
-.me-text {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  font-size: 1rem;
-}
 .title-text {
   position: absolute;
-  left: 2px;
-  top: 10px;
+  left: -100px;
+  top: -100px;
+  font-size: 3rem;
 }
 
-#me {
-  width: 170px;
-  height: auto;
+.age-text {
+  font-size: 0.8rem;
+  position: absolute;
+  color: rgba(163, 167, 170, 0.534) !important;
+  left: 0px;
+  top: 450px;
 }
 
 .social-icons-container {
