@@ -4,15 +4,15 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/portfolio/', // 🔥 Fix för GitHub Pages
+  base: '/portfolio/',
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src') // 🔥 Se till att @ pekar rätt
+      '@': path.resolve(__dirname, './src')
     },
   },
   server: {
     watch: {
-      usePolling: true, // 🔥 Fix för WebSocket-problem
+      usePolling: true, 
     },
   },
 });
