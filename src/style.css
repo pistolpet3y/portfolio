@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
 
-.bg-image {
-  background-image: url("../assets/bg-image.jpg");
-}
-
 html,
 body {
   margin: 0;
@@ -89,7 +85,7 @@ p {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  gap: 50px;
+  gap: 20px;
   flex-wrap: nowrap;
   height: auto;
 }
@@ -200,8 +196,8 @@ p {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 40px;
   width: fit-content;
+  gap: 20px;
   position: relative;
 }
 

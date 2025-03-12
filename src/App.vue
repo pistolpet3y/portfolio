@@ -57,16 +57,21 @@ const toggleSocialIcons = () => {
               <p class="parentheses">(</p>
               <div class="this-window">
                 <p @click="toggleWindow" :class="{ active: showWindow }" style="cursor: pointer;">
-                  this .
+                  this
                 </p>
+                <p>.</p>
               </div>
-              <p>works .</p>
-              <p>just .</p>
-              <p>fine .</p>
+              <p>works</p>
+              <p>.</p>
+              <p>just</p>
+              <p>.</p>
+              <p>fine</p>
+              <p>.</p>
               <p class="parentheses">)</p>
             </div>
           </div>
         </header>
+
         <transition name="fade">
           <div v-if="showWindow" class="window-box" :class="{ open: showWindow }">
             <div class="window-content">
