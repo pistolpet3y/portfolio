@@ -1,18 +1,8 @@
-.bg-image {
-  background-image: url("/bg-image.jpg"); /* Se till att bilden är i public-mappen */
-  background-size: cover; /* Anpassa bilden till skärmen */
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute; /* Låter den scrolla naturligt */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh; /* Täcker hela skärmen */
-  background-attachment: scroll; /* Gör att den scrollar med sidan */
-  z-index: -1; /* Lägg bakom allt annat */
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+
+.bg-image {
+  background-image: url("../assets/bg-image.jpg");
+}
 
 html,
 body {
@@ -41,38 +31,16 @@ p {
   padding-left: 3rem;
   padding-top: 0.5rem;
   font-weight: bold;
-  /*
-  display: flex;
-  flex-direction: column; 
-  gap: 5px;
-  background-color: rgba(32, 56, 102, 0.05);
-  backdrop-filter: blur(10px);
-  width: 450px;
-  padding: 10px;
-  border-radius: 2px;
-  text-transform: uppercase;
-  */
 }
+
 .text-container {
   color: transparent;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  background-image: url("IMG_1498.jpg");
+  background-image: url("../assets/IMG_1498.jpg");
   animation: bg-animation 30s cubic-bezier(0.3, 0, 0.7, 1) infinite;
 }
-
-/*.text-arrows {
-  left: 20px;
-  font-size: 0.9em;
-  opacity: 0;
-  color: #29b585;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-image: url("arrow.fade.png");
-  animation: bg-animation 30s cubic-bezier(0.42, 0, 1, 1) infinite;
-}*/
 
 @keyframes bg-animation {
   0% {
@@ -243,11 +211,6 @@ p {
   color: aliceblue;
   transition: color 0.3s ease-in-out;
 }
-
-/* Ändra färg när fönstret är öppet 
-.this-window p.active {
-  color: rgb(12, 28, 32);
-}*/
 
 .window-content {
   color: aliceblue;

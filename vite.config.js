@@ -1,8 +1,18 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import path from 'path';
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: "/portfolio/", // Lägg till ditt repo-namn här!
   plugins: [vue()],
-})
+  base: './', // 🔥 Fix för GitHub Pages
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src') // 🔥 Se till att @ pekar rätt
+    },
+  },
+  server: {
+    watch: {
+      usePolling: true, // 🔥 Fix för WebSocket-problem
+    },
+  },
+});

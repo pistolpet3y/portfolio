@@ -4,11 +4,27 @@ import RandomQuote from './components/RandomQuote.vue';
 import BirthDate from "./components/BirthDate.vue";
 import Arrows from "./components/Arrows.vue";
 
-
-
 const showPageBox = ref(false);
 const showWindow = ref(false);
 const showSocials = ref(false);
+
+const images = {
+  bgImage: new URL('@/assets/bg-image.jpg', import.meta.url).href,
+  arrowFade: new URL('@/assets/arrow-fade.png', import.meta.url).href,
+  arrow: new URL('@/assets/arrow.png', import.meta.url).href,
+  award: new URL('@/assets/award.png', import.meta.url).href,
+  facebook: new URL('@/assets/f.png', import.meta.url).href,
+  instagram: new URL('@/assets/ig.png', import.meta.url).href,
+  twitter: new URL('@/assets/x.png', import.meta.url).href,
+  linkedin: new URL('@/assets/in.png', import.meta.url).href,
+  youTube: new URL('@/assets/yt.png', import.meta.url).href,
+  me: new URL('@/assets/me.vector.png', import.meta.url).href,
+  img1498: new URL('@/assets/IMG_1498.jpg', import.meta.url).href,
+  textbg: new URL('@/assets/text-bg.png', import.meta.url).href,
+  textEffect: new URL('@/assets/text-effect.png', import.meta.url).href,
+  img1498: new URL('@/assets/IMG_1498.jpg', import.meta.url).href,
+};
+
 
 const togglePageBox = () => {
   showPageBox.value = !showPageBox.value;
@@ -21,26 +37,16 @@ const toggleWindow = () => {
 const toggleSocialIcons = () => {
   showSocials.value = !showSocials.value;
 };
-
 </script>
 
-
-
-
 <template>
-  <div class="bg-image"></div>
+  <div class="bg-image" :style="{ backgroundImage: `url(${images.bgImage})` }"></div>
+
   <div id="its-me">
-    <div class="text-container">
+    <div class="text-container" :style="{ backgroundImage: `url(${images.img1498})` }">
       <p @click="togglePageBox" style="cursor: pointer;">🠶 Alex.Tarverdi</p>
     </div>
   </div>
-
-  <!--<p style="color: #39404c;">UX/UI DESIGNER, FRONTEND DEVELOPER</p>
-  </div>
-  <span id="food">
-    <p>Hamburger is undeniably the superior fast food choice compared to other common options like pizza.</p>
-  </span>
-  </div>-->
 
   <transition name="fade">
     <div id="page-box" v-if="showPageBox">
@@ -66,7 +72,7 @@ const toggleSocialIcons = () => {
             <div class="window-content">
               <p class="title-text">THIS IS <span style="font-style: italic; color: #29b585;">ME</span>.</p>
               <div class="me-container">
-                <img id="me" src="/me.vector.png" alt="Me">
+                <img id="me" :src="images.me" alt="Me">
                 <div class="me-text">
                   <Arrows />
                   <p class="strikethrough">HUSBAND</p>
@@ -78,40 +84,26 @@ const toggleSocialIcons = () => {
                 <p>┐</p>
                 <p>┘</p>
                 <p>┌</p>
-
               </div>
               <p class="age-text">(days and counting.)</p>
               <BirthDate />
             </div>
           </div>
         </transition>
-
-
         <div class="social-icons-container">
           <div class="social-icons" @click="toggleSocialIcons">
-            <!-- 🔥 Wrapper för pil + text, klassen styrs av Vue -->
             <div class="arrow-wrapper" :class="{ 'show-arrow': showSocials }">
-              <img style="width: 182px;" src="/arrow.png" alt="Arrow" class="arrow-icon">
+              <img style="width: 182px;" :src="images.arrow" alt="Arrow" class="arrow-icon">
               <span class="arrow-text">these dont work</span>
             </div>
-
-            <!-- Sociala ikoner -->
-            <img src="/f.png" alt="Facebook">
-            <img src="/x.png" alt="Twitter">
-            <img src="/ig.png" alt="Instagram">
-            <img src="/in.png" alt="LinkedIn">
+            <img :src="images.facebook" alt="Facebook">
+            <img :src="images.twitter" alt="Twitter">
+            <img :src="images.instagram" alt="Instagram">
+            <img :src="images.linkedin" alt="LinkedIn">
           </div>
         </div>
 
         <div id="main">
-          <!--<div class="awards">
-            <p>2023-2024</p>
-            <img src="/award.png" alt="award">
-            <p>nominated best boyfriend in the world 2 years in a row</p>
-          <p>2021</p>
-          <img src="/award.png" alt="award">
-          <p>Brother of the year</p>
-        </div>-->
           <div id="main-text">
             <div v-if="true">
               <RandomQuote />
@@ -121,11 +113,29 @@ const toggleSocialIcons = () => {
       </div>
     </div>
   </transition>
-
-
-  <footer></footer>
 </template>
 
+<style>
+.bg-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-attachment: scroll;
+  z-index: -1;
+}
 
-
-<style></style>
+.text-container {
+  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-size: cover;
+  background-position: center;
+  animation: bg-animation 30s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+}
+</style>
