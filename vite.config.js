@@ -4,7 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [vue()],
-  base: './', // 🔥 Fix för GitHub Pages
+  base: '/portfolio/', // 🔥 Fix för GitHub Pages
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src') // 🔥 Se till att @ pekar rätt
